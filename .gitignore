@@ -4,3 +4,4 @@ dist/
 docs/
 *.log
 openapi.yml
+package-lock.json
