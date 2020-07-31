@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
-  "index": "lib/index.js",
+  "index": "index.js",
   "bin": {
-    "openapi-documenter": "lib/cli.js"
+    "openapi-documenter": "cli.js"
   },
   "scripts": {
-    "start": "node lib/cli.js",
+    "start": "node cli.js",
     "dev": "nuxt"
   },
   "dependencies": {
