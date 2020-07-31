@@ -1,9 +1,10 @@
 {
   "name": "openapi-documenter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
   "index": "index.js",
+  "author": "OurOpenCode",
   "bin": {
     "openapi-documenter": "cli.js"
   },
