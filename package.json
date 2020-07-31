@@ -1,10 +1,10 @@
 {
   "name": "opendocumenter",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "main": "index.js",
   "license": "MIT",
   "index": "src/index.js",
-  "author": "OurOpenCode",
+  "author": "$ourOpenCode",
   "bin": {
     "opendocumenter": "src/cli.js"
   },

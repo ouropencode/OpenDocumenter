@@ -8,22 +8,61 @@ const colors = require("colors")
 
 module.exports = class Core {
 
-  constructor(file, outputDir) {
-    this._file = path.resolve(file)
+  constructor(schema, outputDir, configFile) {
+    this._schema = path.resolve(schema)
     this._outputDir = path.resolve(outputDir)
-    this._srcPath = path.join(__dirname, 'src')
-    this._tmpPath = path.join(__dirname, uuid.v4())
+    this._configFile = path.resolve(configFile)
+
+    let config = {}
+    if(this._configFile)
+      config = JSON.parse(fs.readFileSync(this._configFile))
+
+    this._config = {
+      "mergeFromDirectory": null,
+      "disableGeneratedUsingFooter": false,
+      "i18n": {},
+      ...config
+    }
+
+    this._config.i18n = {
+      "API_SDK_DOCUMENTATION": "API and SDK Documentation",
+      "VERSION": "Version",
+      "NO_INDEPTH_DOCS_AVAILABLE_ENDPOINT": "No in-depth API documentation is available for this endpoint.",
+      "NO_INDEPTH_DOCS_AVAILABLE_TAG": "No in-depth API documentation is available for this section.",
+      "CLICK_TO_COPY": "click to copy",
+      "COPIED": "copied",
+      "REQUEST_BODY": "Request Body",
+      "REQUEST_RESPONSES": "Request Responses",
+      "DEFINITION": "Definition",
+      "DEFINITIONS": "Definitions",
+      "SERVER": "Server",
+      "LANGUAGE": "Language",
+      "GENERATED_USING": "Generated using OpenDocumenter by $ourOpenCode",
+      ...this._config.i18n
+    }
+
+    if(this._config.mergeFromDirectory != null)
+      this._mrgPath = path.resolve(this._config.mergeFromDirectory)
+
+    this._srcPath = path.join(__dirname, '..', 'src-nuxt')
+    this._tmpPath = path.join(__dirname, '..', uuid.v4())
     this._cwd = process.cwd()
   }
 
   async prepare() {
-    this._api = await this.loadAPI(this._file)
+    this._api = await this.loadAPI(this._schema)
     console.log(`  API Name:      ${this._api.info.title}`)
     console.log(`  API Version:   ${this._api.info.version}`)
-    console.log(`  Schema:        ${this._file}`)
-    console.log(`  Output Dir:    ${this._outputDir}`)
+    console.log(`  Schema:        ${this._schema}`)
+    console.log(`  Output:        ${this._outputDir}`)
+        if(this._configFile)
+          console.log(`  Config:        ${this._configFile}`)
+
 
     await copy(this._srcPath, this._tmpPath)
+
+    if(this._config.mergeFromDirectory != null)
+      await copy(this._mrgPath, this._tmpPath, { overwrite: true })
   }
 
   async finish() {
@@ -44,27 +83,11 @@ module.exports = class Core {
   async generate(file) {
     process.chdir(this._tmpPath)
 
-    const i18n = {
-      'API_SDK_DOCUMENTATION': 'API and SDK Documentation',
-      'VERSION': 'Version',
-      'NO_INDEPTH_DOCS_AVAILABLE_ENDPOINT': 'No in-depth API documentation is available for this endpoint.',
-      'NO_INDEPTH_DOCS_AVAILABLE_TAG': 'No in-depth API documentation is available for this section.',
-      'CLICK_TO_COPY': 'click to copy',
-      'COPIED': 'copied',
-      'REQUEST_BODY': 'Request Body',
-      'REQUEST_RESPONSES': 'Request Responses',
-      'DEFINITION': 'Definition',
-      'DEFINITIONS': 'Definitions',
-      'SERVER': 'Server',
-      'LANGUAGE': 'Language',
-      'GENERATED_USING': 'Generated using OpenDocumenter by OurOpenCode',
-    };
-
     const config = await this.getNuxtConfig({ dev: false })
     config.env = {
+      ...config.env,
+      ...this._config,
       api: this._api,
-      i18n,
-      ...config.env
     }
     config.build = config.build || {}
     config.build.analyze = false

@@ -3,12 +3,12 @@
 const Core = require('./index.js')
 const minimist = require("minimist")
 const colors = require("colors")
-const pkg = require('./package.json')
+const pkg = require('../package.json')
 
 const argv = minimist(process.argv.slice(2))
 
 const start = async () => {
-  const docgen = new Core(argv.schema, argv.outputDir)
+  const docgen = new Core(argv.schema, argv.output, argv.config)
   try {
     await docgen.prepare()
     await docgen.generate()
@@ -27,7 +27,7 @@ console.log(`
        |_|                                             ${pkg.version}
 `.green)
 
-if(!argv.schema || !argv.outputDir) {
+if(!argv.schema || !argv.output) {
   console.log(`
   OpenDocumenter is a automatic documentation generator for OpenAPI v3 schemas.
   Simply provide your schema file in JSON or YAML, then sit back and enjoy the documentation.
@@ -36,12 +36,13 @@ if(!argv.schema || !argv.outputDir) {
 
   Usage:
 
-      opendocumenter --schema=<file> --outputDir=<dir>
+      opendocumenter --schema=<file> --output=<dir>
 
   Arguments:
 
       --schema=<file>    The OpenAPI v3 format file to generate documentation from
-      --outputDir=<dir>  The output destination directory`)
+      --output=<dir>     The output destination directory
+      --config=<file>    A configuration file to load advanced options from.`)
 } else {
   start()
 }

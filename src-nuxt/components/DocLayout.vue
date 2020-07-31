@@ -8,7 +8,7 @@
       <article v-for="tag in $api.tags" :key="tag.name">
         <DocTag :tag="tag" />
       </article>
-      <DocFooter />
+      <DocFooter v-if="$env('disableGeneratedUsingFooter') == false" />
     </div>
   </div>
 </template>

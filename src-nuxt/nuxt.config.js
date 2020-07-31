@@ -16,6 +16,7 @@ export default {
   modules: ['nuxt-fontawesome', '@nuxtjs/markdownit', 'nuxt-webfontloader'],
   plugins: [
     '~/plugins/openapi.js',
+    '~/plugins/env.js',
     '~/plugins/i18n.js',
     '~/plugins/hashPath.js',
     '~/plugins/smoothScroll.js',
