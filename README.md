@@ -42,4 +42,4 @@ or
 ```
 
 ## Licence
-Licened under the MIT licence. Please see [LICENCE.md](LICENCE.md) for more details.
+Licenced under the MIT licence. Please see [LICENCE.md](LICENCE.md) for more details.

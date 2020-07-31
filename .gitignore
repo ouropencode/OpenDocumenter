@@ -1,5 +1,6 @@
 node_modules/
 .nuxt/
 dist/
+docs/
 *.log
 openapi.yml
