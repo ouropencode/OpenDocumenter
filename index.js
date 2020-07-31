@@ -4,30 +4,36 @@ const copy = require("recursive-copy")
 const path = require("path")
 const fs = require("fs")
 const uuid = require("uuid")
+const colors = require("colors")
 
 module.exports = class Core {
 
   constructor(file, outputDir) {
-    this._file = file
+    this._file = path.resolve(file)
     this._outputDir = path.resolve(outputDir)
-    this._srcPath = path.join(__dirname, '..', 'src')
-    this._tmpPath = path.join(__dirname, '..', uuid.v4())
+    this._srcPath = path.join(__dirname, 'src')
+    this._tmpPath = path.join(__dirname, uuid.v4())
     this._cwd = process.cwd()
   }
 
   async prepare() {
-    this._api = await this.loadAPI(this._file);
-    console.log("API name: %s, Version: %s", this._api.info.title, this._api.info.version)
+    this._api = await this.loadAPI(this._file)
+    console.log(`  API Name:      ${this._api.info.title}`)
+    console.log(`  API Version:   ${this._api.info.version}`)
+    console.log(`  Schema:        ${this._file}`)
+    console.log(`  Output Dir:    ${this._outputDir}`)
 
-    const srcResults = await copy(this._srcPath, this._tmpPath)
-    console.log(`Copied ${srcResults.length} files`)
+    await copy(this._srcPath, this._tmpPath)
   }
 
   async finish() {
     fs.rmdirSync(this._outputDir, { recursive: true });
 
     const results = await copy(path.join(this._tmpPath, "dist"), this._outputDir)
-    console.log(`Copied ${results.length} distribution files`)
+
+    console.log()
+    console.log(`  --- OpenAPI-Documenter finished. ${results.length} files created. ---`.bold.green)
+    console.log()
   }
 
   async finalize() {
@@ -64,7 +70,10 @@ module.exports = class Core {
     config.build.analyze = false
     config.target = 'static'
 
-    console.log("Starting nuxt for build")
+    console.log()
+    console.log("  --- Starting nuxt for build ---".bold.green)
+    console.log()
+
     try {
       const nuxt = await this.getNuxt(config)
       const generator = await this.getGenerator(nuxt)
