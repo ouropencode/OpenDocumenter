@@ -1,12 +1,12 @@
 {
-  "name": "openapi-documenter",
+  "name": "opendocumenter",
   "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
   "index": "index.js",
   "author": "OurOpenCode",
   "bin": {
-    "openapi-documenter": "cli.js"
+    "opendocumenter": "cli.js"
   },
   "scripts": {
     "start": "node cli.js",

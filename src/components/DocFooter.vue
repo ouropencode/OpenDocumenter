@@ -1,6 +1,6 @@
 <template>
   <SplitSection class="footer" id="bottom">
-    <a href="https://github.com/ouropencode/openapi-documenter" target="_blank" slot="side" class="footer__link">
+    <a href="https://github.com/ouropencode/opendocumenter" target="_blank" slot="side" class="footer__link">
       <div class="footer__love">
         <font-awesome-icon icon="heart" />
       </div>

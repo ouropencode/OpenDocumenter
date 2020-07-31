@@ -32,7 +32,7 @@ module.exports = class Core {
     const results = await copy(path.join(this._tmpPath, "dist"), this._outputDir)
 
     console.log()
-    console.log(`  --- OpenAPI-Documenter finished. ${results.length} files created. ---`.bold.green)
+    console.log(`  --- OpenDocumenter finished. ${results.length} files created. ---`.bold.green)
     console.log()
   }
 
@@ -57,7 +57,7 @@ module.exports = class Core {
       'DEFINITIONS': 'Definitions',
       'SERVER': 'Server',
       'LANGUAGE': 'Language',
-      'GENERATED_USING': 'Generated using OpenAPI Documenter by OurOpenCode',
+      'GENERATED_USING': 'Generated using OpenDocumenter by OurOpenCode',
     };
 
     const config = await this.getNuxtConfig({ dev: false })
