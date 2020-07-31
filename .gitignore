@@ -2,3 +2,4 @@ node_modules/
 .nuxt/
 dist/
 *.log
+testspec.yml
