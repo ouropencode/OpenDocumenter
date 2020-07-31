@@ -3,13 +3,13 @@
   "version": "0.2.1",
   "main": "index.js",
   "license": "MIT",
-  "index": "index.js",
+  "index": "src/index.js",
   "author": "OurOpenCode",
   "bin": {
-    "opendocumenter": "cli.js"
+    "opendocumenter": "src/cli.js"
   },
   "scripts": {
-    "start": "node cli.js",
+    "start": "node src/cli.js",
     "dev": "nuxt"
   },
   "dependencies": {

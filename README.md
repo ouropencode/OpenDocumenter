@@ -4,7 +4,7 @@ OpenDocumenter is a automatic documentation generator for OpenAPI v3 schemas. Si
 Powered by nuxt.js and swagger-parser.Powered by nuxt.js and swagger-parser.
 
 ## Example
-![Image](https://raw.githubusercontent.com/ouropencode/opendocumenter/master/example.png)
+![Image](https://raw.githubusercontent.com/ouropencode/opendocumenter/master/res/example.png)
 
 ## Installation
 
