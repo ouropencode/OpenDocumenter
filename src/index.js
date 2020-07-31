@@ -11,7 +11,7 @@ module.exports = class Core {
   constructor(schema, outputDir, configFile) {
     this._schema = path.resolve(schema)
     this._outputDir = path.resolve(outputDir)
-    this._configFile = path.resolve(configFile)
+    this._configFile = configFile ? path.resolve(configFile) : undefined
 
     let config = {}
     if(this._configFile)
