@@ -43,7 +43,7 @@ or
 ```
 
 ## Configuration
-OpenDocumenter can be configured using a `.json` file stored alongside your schema file. This file can contain any of the following options:
+OpenDocumenter can be configured using a `.json` file stored alongside your schema file.
 
 ### Merge From Directory
 The `mergeFromDirectory` parameter allows you to specify a directory that will be copied over the base template before building. This allows customization of any part of OpenDocumenter to suit your needs.
@@ -65,7 +65,7 @@ overrides
 ```
 
 ### Disable 'Generated Using' Footer
-By default a small 'Generated Using' message is included on the footer the generated documentation. Although we'd love you to keep it, you can disable this by setting the `disableGeneratedUsingFooter` parameter to true.
+By default, a small 'Generated Using' message is included on the footer of the generated documentation. Although we'd love you to keep it, you can disable this by setting the `disableGeneratedUsingFooter` parameter to true.
 
 ```json
 {
