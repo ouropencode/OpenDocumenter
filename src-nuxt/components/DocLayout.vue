@@ -8,7 +8,7 @@
       <article v-for="tag in $api.tags" :key="tag.name">
         <DocTag :tag="tag" />
       </article>
-      <DocFooter v-if="$env('disableGeneratedUsingFooter') == false" />
+      <DocFooter v-if="$config.disableGeneratedUsingFooter == false" />
     </div>
   </div>
 </template>
@@ -21,9 +21,6 @@ import DocFooter from "~/components/DocFooter"
 
 export default {
   components: { DocSidebar, DocHeader, DocTag, DocFooter },
-  mounted() {
-    console.log("API Loaded", this.$api)
-  },
   head() {
     return {
       title: `${this.$api.info.title} - ${this.$api.info.version}`,

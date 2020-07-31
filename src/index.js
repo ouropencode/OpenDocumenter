@@ -38,14 +38,14 @@ module.exports = class Core {
       "SERVER": "Server",
       "LANGUAGE": "Language",
       "GENERATED_USING": "Generated using OpenDocumenter by $ourOpenCode",
-      ...this._config.i18n
+      ...config.i18n
     }
 
     if(this._config.mergeFromDirectory != null)
       this._mrgPath = path.resolve(this._config.mergeFromDirectory)
 
     this._srcPath = path.join(__dirname, '..', 'src-nuxt')
-    this._tmpPath = path.join(__dirname, '..', uuid.v4())
+    this._tmpPath = path.join(__dirname, '..', 'tmp-' + uuid.v4())
     this._cwd = process.cwd()
   }
 
@@ -55,8 +55,8 @@ module.exports = class Core {
     console.log(`  API Version:   ${this._api.info.version}`)
     console.log(`  Schema:        ${this._schema}`)
     console.log(`  Output:        ${this._outputDir}`)
-        if(this._configFile)
-          console.log(`  Config:        ${this._configFile}`)
+    if(this._configFile)
+      console.log(`  Config:        ${this._configFile}`)
 
 
     await copy(this._srcPath, this._tmpPath)
@@ -86,8 +86,8 @@ module.exports = class Core {
     const config = await this.getNuxtConfig({ dev: false })
     config.env = {
       ...config.env,
-      ...this._config,
-      api: this._api,
+      config: this._config,
+      api:    this._api,
     }
     config.build = config.build || {}
     config.build.analyze = false

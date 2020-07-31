@@ -2,6 +2,7 @@ node_modules/
 .nuxt/
 dist/
 docs/
+tmp-*/
 *.log
 openapi.yml
 package-lock.json

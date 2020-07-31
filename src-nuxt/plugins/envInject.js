@@ -1,5 +1,6 @@
 export default (context, inject) => {
-  let api = process.env.api || {}
+  const api    = process.env.api || {}
+  const config = process.env.config || {}
 
   for(let path in api.paths) {
     for(let method in api.paths[path]) {
@@ -24,8 +25,8 @@ export default (context, inject) => {
   })
 
   console.log(`API name: ${api.info.title}, Version: ${api.info.version}`)
-  console.log(api);
 
-  inject('api', api)
-  context.$api = api
+  inject('api',    api)
+  inject('config', config)
+  inject('i18n',   key => config.i18n[key] || key)
 }
