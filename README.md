@@ -26,8 +26,8 @@ or
 |_____|  _|___|_|_|__|__|__|  |_____|   |____/|___|___|___|_|_|_|___|_|_|_| |___|_|
      |_|                                                                      
 
-OpenAPI-Documenter is a automatic documentation generator. Simply provide an OpenAPI schema file in JSON or YAML
-alongside your output directory, then sit back and enjoy the documentation.
+OpenAPI-Documenter is a automatic documentation generator. Simply provide an OpenAPI schema file in JSON or
+YAML alongside your output directory, then sit back and enjoy the documentation.
 
 Powered by nuxt.js and swagger-parser.
 
