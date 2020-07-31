@@ -1,9 +1,12 @@
 {
-  "name": "openapi-docgen",
-  "version": "1.0.0",
+  "name": "openapi-documenter",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "index": "lib/index.js",
+  "bin": {
+    "openapi-documenter": "lib/cli.js"
+  },
   "scripts": {
     "start": "node lib/cli.js",
     "dev": "nuxt"
