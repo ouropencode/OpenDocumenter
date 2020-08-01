@@ -1,7 +1,14 @@
 <template>
   <SplitSection class="header" id="top" :no-padding="true">
-    <div class="header__version">{{ $i18n('VERSION') }} {{ $api.info.version }}</div>
-    <div class="header__title">{{ $api.info.title }}</div>
+    <div class="header-split">
+      <div class="header-split__left header__title">{{ $api.info.title }}</div>
+      <div class="header-split__right header__shields">
+        <shield v-for="(badge, idx) in badges" :key="idx" :url="badge.url"
+          :left="badge.left" :right="badge.right"
+          :translate="badge.translate" :color="badge.color" />
+      </div>
+    </div>
+
     <div class="header__subtitle">{{ $i18n('API_SDK_DOCUMENTATION') }}</div>
 
     <markdown v-if="$api.info.summary" class="header__summary" :content="$api.info.summary" />
@@ -17,9 +24,18 @@
 import SplitSection from "~/components/SplitSection"
 import Markdown from "~/components/Markdown"
 import DocToolbox from "~/components/DocToolbox"
+import Shield from "~/components/Shield"
 
 export default {
-  components: { SplitSection, Markdown, DocToolbox }
+  components: { SplitSection, Markdown, DocToolbox, Shield },
+  computed: {
+    badges() {
+      return [
+        { left: "VERSION", right: this.$api.info.version, translate: "left" },
+        ...(this.$config.badges || [])
+      ]
+    }
+  }
 }
 </script>
 
@@ -27,10 +43,16 @@ export default {
 @import "~/assets/theme.less";
 
 .header {
-  &__version {
+  .header-split {
+    display: flex;
+    &__left { flex: 0 0 auto; }
+    &__right { flex: 1 1 auto; }
+  }
+
+  &__shields {
     color: @color-header-version;
-    padding: 1rem 0;
-    float: right;
+    padding: 0.25rem 0 0 0;
+    text-align: right;
   }
 
   &__title {

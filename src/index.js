@@ -27,7 +27,7 @@ module.exports = class Core {
 
     this._config.i18n = {
       "API_SDK_DOCUMENTATION": "API and SDK Documentation",
-      "VERSION": "Version",
+      "VERSION": "version",
       "NO_INDEPTH_DOCS_AVAILABLE_ENDPOINT": "No in-depth API documentation is available for this endpoint.",
       "NO_INDEPTH_DOCS_AVAILABLE_TAG": "No in-depth API documentation is available for this section.",
       "CLICK_TO_COPY": "click to copy",

@@ -2,6 +2,7 @@
   "mergeFromDirectory": null,
   "disableGeneratedUsingFooter": false,
   "abortOnInvalidSchema": false,
+  "badges": [],
   "i18n": {
     "API_SDK_DOCUMENTATION": "API and SDK Documentation",
     "VERSION": "Version",
