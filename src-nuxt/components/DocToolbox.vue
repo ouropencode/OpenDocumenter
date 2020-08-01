@@ -1,7 +1,7 @@
 <template>
   <div class="toolbox">
-    <DocToolboxDropdown :label="$i18n('SERVER')" v-model="currentServer" :options="serverOptions" />
-    <DocToolboxDropdown :label="$i18n('LANGUAGE')" v-model="currentLang" :options="langOptions" />
+    <DocToolboxDropdown v-if="serverOptions.length" :label="$i18n('SERVER')" v-model="currentServer" :options="serverOptions" />
+    <DocToolboxDropdown v-if="langOptions.length" :label="$i18n('LANGUAGE')" v-model="currentLang" :options="langOptions" />
     <div class="toolbox__spacer"></div>
     <DocToolboxDropdown :label="$i18n('DEFINITIONS')" v-model="showDefinition" :options="showDefOptions" />
     <DocToolboxIcon icon="cog" @click="openOptions" />
@@ -37,7 +37,7 @@ export default {
     langOptions() {
       return [
         {key: 'curl', value: 'cURL'},
-        {key: 'php',  value: 'PHP'},
+        //{key: 'php',  value: 'PHP'},
       ]
     },
     showDefOptions() {

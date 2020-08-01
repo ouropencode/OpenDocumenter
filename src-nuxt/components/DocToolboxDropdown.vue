@@ -7,10 +7,10 @@
     <div class="toolbox-dropdown__value" @click="isOpen = !isOpen">
       <div>
         <span>{{ valueText }}</span>
-        <font-awesome-icon icon="chevron-down" />
+        <font-awesome-icon icon="chevron-down" v-if="options.length > 1" />
       </div>
 
-      <div class="toolbox-dropdown__options" v-show="isOpen">
+      <div class="toolbox-dropdown__options" v-show="isOpen" v-if="options.length > 1">
         <div class="toolbox-dropdown-option" v-for="opt in options" :key="opt.key" @click="$emit('input', opt.key)">
           {{ opt.value }}
         </div>
