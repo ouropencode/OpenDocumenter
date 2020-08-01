@@ -1,9 +1,11 @@
 <template>
   <SplitSection class="header" id="top" :no-padding="true">
+    <div class="header__version">{{ $i18n('VERSION') }} {{ $api.info.version }}</div>
     <div class="header__title">{{ $api.info.title }}</div>
     <div class="header__subtitle">{{ $i18n('API_SDK_DOCUMENTATION') }}</div>
-    <div class="header__version">{{ $i18n('VERSION') }} {{ $api.info.version }}</div>
-    <markdown class="header__intro" :content="$api.info.description" />
+
+    <markdown v-if="$api.info.summary" class="header__summary" :content="$api.info.summary" />
+    <markdown v-if="$api.info.description" class="header__description" :content="$api.info.description" />
 
     <div slot="side">
       <DocToolbox />
@@ -25,25 +27,24 @@ export default {
 @import "~/assets/theme.less";
 
 .header {
+  &__version {
+    color: @color-header-version;
+    padding: 1rem 0;
+    float: right;
+  }
+
   &__title {
     .theme-font-title();
-    padding: 1rem 0;
+    padding: 0 0 1.6rem 0;
   }
 
   &__subtitle {
     .theme-font-subtitle();
-    padding: 1rem 0;
+    padding: 1.5rem 0 1.25rem 0;
   }
 
-  &__version {
-    color: @color-header-version;
-    padding: 1rem 0;
-  }
-
-  &__intro {
-    color: @color-header-intro;
-    padding: 0;
-    a { color: @color-header-intro; }
+  &__summary {
+    p { .theme-font-summary(); }
   }
 }
 </style>
