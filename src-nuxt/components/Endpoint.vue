@@ -1,10 +1,11 @@
 <template>
   <div class="endpoint" :data-type="method" @click="copyText">
-    <div class="endpoint__method">
-      {{ method }}
-    </div>
     <div class="endpoint__path" ref="text">
       {{ path }}
+    </div>
+
+    <div class="endpoint__method">
+      {{ method }}
     </div>
 
     <div class="endpoint__hover">
@@ -77,8 +78,8 @@ export default {
 
     padding: 0 0.75em;
 
-    border-top-left-radius: @border-radius;
-    border-bottom-left-radius: @border-radius;
+    border-top-right-radius: @border-radius;
+    border-bottom-right-radius: @border-radius;
   }
 
   &__path {
@@ -89,8 +90,8 @@ export default {
 
     padding: 0.4em 0.5em 0.5em 0.5em;
 
-    border-top-right-radius: @border-radius;
-    border-bottom-right-radius: @border-radius;
+    border-top-left-radius: @border-radius;
+    border-bottom-left-radius: @border-radius;
   }
 
   &__hover {
