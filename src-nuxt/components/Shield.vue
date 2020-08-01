@@ -7,7 +7,6 @@ export default {
   props: ['url', 'left', 'right', 'color', 'translate'],
   computed: {
     src() {
-      console.log(this.url)
       if(this.url)
         return this.url;
 
