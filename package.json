@@ -15,6 +15,9 @@
     "dev-serve": "serve docs",
     "dev-nuxt": "cd src-nuxt && nuxt"
   },
+  "engines": {
+    "node": ">=14.6"
+  },
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.0.1",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
