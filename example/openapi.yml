@@ -14,23 +14,23 @@ info:
     email: support@example.com
     url: https://example.com
   termsOfService: https://example.com/terms
-  licence:
+  license:
     name: MIT
     url: https://github.com/ouropencode/OpenDocumenter/blob/master/LICENSE
     identifier: MIT
-    
+
 servers:
   - url: https://fermentum.example.com
     description: Fermentum API
   - url: https://vestibulum.example.com
     description: Vestibulum API
-    
+
 externalDocs:
   url: https://doc.example.com
   description: Curabitur eget porta
-  
+
 tags:
-  - name: Consectetur 
+  - name: Consectetur
     description: |
       Pellentesque sit amet metus lacinia, venenatis erat quis, gravida massa. Suspendisse facilisis porttitor nunc, in consequat augue. Vestibulum tincidunt quam vel mi dapibus, non convallis lacus porttitor. Etiam id purus nec diam vehicula feugiat ut sit amet metus. Nunc mattis dolor nec tristique ullamcorper. Integer malesuada in nisl eu consequat. Donec eu quam pellentesque, sodales neque ut, mattis ipsum. Nullam sit amet varius est. Duis et commodo leo, non suscipit eros. Nam tempor ultricies libero in bibendum. Curabitur eu bibendum erat. Morbi odio ipsum, imperdiet quis luctus at, venenatis sit amet nibh.
   - name: Posuere
@@ -102,7 +102,7 @@ paths:
                 error: mattis porta lorem eget tempor
               schema:
                 $ref: '#/components/schemas/Error'
-                
+
   /consectetur/vitae:
     post:
       summary: Phasellus nec vestibulum
