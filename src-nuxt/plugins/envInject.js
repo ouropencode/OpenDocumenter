@@ -13,8 +13,7 @@ const addPathMethodAndDefaultTags = api => {
       const def = api.paths[path][method]
       def.path = path
       def.method = method
-
-      if(typeof def.tags !== 'array' || def.tags.length == 0) {
+      if(!Array.isArray(def.tags) || def.tags.length == 0) {
         def.tags = ['default']
         if(api.tags.filter(t => t.name == 'default').length == 0)
           api.tags.push({ name: "default" })
@@ -46,13 +45,14 @@ export default (context, inject) => {
   }
 
   const api = {
+    openapi: "0.0.0",
     info: {},
     servers: [],
-    security: [],
     paths: {},
+    components: {},
+    security: [],
     tags: [],
     externalDocs: [],
-    components: {},
     ...(process.env.api || {})
   }
 
