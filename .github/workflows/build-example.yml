@@ -1,4 +1,4 @@
-name: Build Example Documentation
+name: Example Documentation
 
 on: [push]
 
