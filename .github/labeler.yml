@@ -1,0 +1,8 @@
+documentation:
+- **/*.md
+
+engine:
+- src/**/*
+
+template:
+- src-nuxt/**/*
