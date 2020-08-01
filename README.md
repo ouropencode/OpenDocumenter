@@ -140,5 +140,5 @@ Most of the documentation text is taken directly from the OpenAPI schema file, h
 }
 ```
 
-## Licence
-Licenced under the MIT licence. Please see [LICENCE.md](LICENCE.md) for more details.
+## License
+Licensed under the MIT license. Please see [LICENSE](LICENSE) for more details.
