@@ -13,7 +13,7 @@ OpenDocumenter is a automatic documentation generator for [OpenAPI v3](https://g
 Powered by [nuxt.js](https://nuxtjs.org/https://nuxtjs.org/) and [swagger-parser](https://github.com/swagger-api/swagger-parser).
 
 ## Example
-![Example of OpenDocumenter output](https://raw.githubusercontent.com/ouropencode/OpenDocumenter/master/res/example.gif)
+![Example of OpenDocumenter output](https://raw.githubusercontent.com/ouropencode/OpenDocumenter/master/example/example.gif)
 
 ## Installation
 
