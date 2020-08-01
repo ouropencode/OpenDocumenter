@@ -43,4 +43,9 @@ pre, code {
 p {
   .theme-font-body();
 }
+
+a {
+  color: @color-body-link;
+  &:hover { color: @color-body-link-hover; }
+}
 </style>
