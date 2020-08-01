@@ -82,14 +82,20 @@ OpenDocumenter is capable of generating documentation for OpenAPI schemas that d
 }
 ```
 
-### Badges
-Various badges are included in the generated documentation header, such as the API version. Additional badges can be added using the `badges` parameter. Each badge is an object containing either the `url` key, or a combination of `left`, `right` and `color`. The `translate` parameter can be used (`left`, `right`, `both`) to run the text through the internationalization handler. All badges are generated using [shields.io](https://shields.io) unless a URL is provided.
+### Shields / Badges
+Various shields are included in the generated documentation header, such as the API version. Additional shields can be added using the `shields` parameter. Each badge is an object containing either the `url` key, or a combination of `left`, `right` and `color`. The `translate` parameter can be used (`left`, `right`, `both`) to run the text through the internationalization handler. An optional link can provided with the `href` parameter. All shields are generated using [shields.io](https://shields.io) unless a URL is provided.
 
 ```json
 {
-  "badges": [
+  "shields": [
     { "url": "https://img.shields.io/badge/test-1.2.3--test-blue" },
-    { "left": "test", "right": "1.2.3-test", "color": "blue"}
+    { "left": "test", "right": "1.2.3-test", "color": "blue" },
+    {
+      "left": "test",
+      "right": "1.2.3-test",
+      "color": "blue",
+      "href": "https://www.example.com"
+    }
   ]
 }
 ```

@@ -3,9 +3,14 @@
     <div class="header-split">
       <div class="header-split__left header__title">{{ $api.info.title }}</div>
       <div class="header-split__right header__shields">
-        <shield v-for="(badge, idx) in badges" :key="idx" :url="badge.url"
-          :left="badge.left" :right="badge.right"
-          :translate="badge.translate" :color="badge.color" />
+        <shield v-for="(shield, idx) in shields" :key="idx"
+          :url="shield.url"
+          :left="shield.left"
+          :right="shield.right"
+          :translate="shield.translate"
+          :color="shield.color"
+          :href="shield.href"
+          />
       </div>
     </div>
 
@@ -32,10 +37,14 @@ import ContactTeam from "~/components/ContactTeam"
 export default {
   components: { SplitSection, Markdown, DocToolbox, Shield, ContactTeam },
   computed: {
-    badges() {
-      return [
+    shields() {
+      const shields = [
         { left: "VERSION", right: this.$api.info.version, translate: "left" },
-        ...(this.$config.badges || [])
+      ]
+
+      return [
+        ...shields,
+        ...(this.$config.shields || []),
       ]
     }
   }

@@ -1,10 +1,12 @@
 <template>
-  <img :src="src" class="badge" />
+  <a :href="href" class="badge">
+    <img :src="src" />
+  </a>
 </template>
 
 <script>
 export default {
-  props: ['url', 'left', 'right', 'color', 'translate'],
+  props: ['url', 'left', 'right', 'color', 'translate', 'href'],
   computed: {
     src() {
       if(this.url)

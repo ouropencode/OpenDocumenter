@@ -21,6 +21,7 @@ module.exports = class Core {
       "mergeFromDirectory": null,
       "disableGeneratedUsingFooter": false,
       "abortOnInvalidSchema": false,
+      "shields": [],
       "i18n": {},
       ...config
     }
