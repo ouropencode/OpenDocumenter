@@ -1,0 +1,17 @@
+on: push
+name: Build Example Documentation
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.1
+      with:
+        node-version: >=14.6
+    - uses: actions/checkout@master
+    - name: build
+      run: |
+        npm run dev-generate
+    - uses: kittaakos/upload-artifact-as-is@v0
+      with:
+        path: example/docs/
