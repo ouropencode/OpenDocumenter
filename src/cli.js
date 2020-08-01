@@ -46,8 +46,8 @@ if(!argv.schema || !argv.output) {
 
   Arguments:
 
-      --schema=<file>    The OpenAPI v3 format file to generate documentation from
-      --output=<dir>     The output destination directory
+      --schema=<file>    (required) The OpenAPI v3 format file to generate documentation from.
+      --output=<dir>     (required) The output destination directory.
       --config=<file>    A configuration file to load advanced options from.`)
 } else {
   start()
