@@ -42,6 +42,16 @@ export default {
         { left: "VERSION", right: this.$api.info.version, translate: "left" },
       ]
 
+      if(this.$api.info.license) {
+        let license = this.$api.info.license
+        shields.push({
+          left: "LICENSE",
+          right: license.identifier || license.name || "unknown",
+          translate: "left",
+          href: license.url,
+        })
+      }
+
       return [
         ...shields,
         ...(this.$config.shields || []),
