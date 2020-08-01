@@ -46,7 +46,7 @@ module.exports = class Core {
       this._mrgPath = path.resolve(this._config.mergeFromDirectory)
 
     this._srcPath = path.join(__dirname, '..', 'src-nuxt')
-    this._tmpPath = path.join(__dirname, '..', 'tmp-' + uuid.v4())
+    this._tmpPath = path.join(__dirname, '..', 'tmp', uuid.v4())
     this._cwd = process.cwd()
   }
 
