@@ -14,6 +14,8 @@
     <markdown v-if="$api.info.summary" class="header__summary" :content="$api.info.summary" />
     <markdown v-if="$api.info.description" class="header__description" :content="$api.info.description" />
 
+    <ContactTeam v-if="$api.info.contact" />
+
     <div slot="side">
       <DocToolbox />
     </div>
@@ -25,9 +27,10 @@ import SplitSection from "~/components/SplitSection"
 import Markdown from "~/components/Markdown"
 import DocToolbox from "~/components/DocToolbox"
 import Shield from "~/components/Shield"
+import ContactTeam from "~/components/ContactTeam"
 
 export default {
-  components: { SplitSection, Markdown, DocToolbox, Shield },
+  components: { SplitSection, Markdown, DocToolbox, Shield, ContactTeam },
   computed: {
     badges() {
       return [

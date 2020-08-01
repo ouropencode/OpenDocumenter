@@ -39,6 +39,11 @@ module.exports = class Core {
       "SERVER": "Server",
       "LANGUAGE": "Language",
       "GENERATED_USING": "Generated using OpenDocumenter by $ourOpenCode",
+      "HAVE_ANY_QUESTIONS_CONTACT": "Have any questions? Please contact",
+      "US": "us",
+      "OR": "or",
+      "VIA_EMAIL": "via email",
+      "VIA_OUR_WEBSITE": "via our website",
       ...config.i18n
     }
 
