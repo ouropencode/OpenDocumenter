@@ -2,6 +2,9 @@
   <div class="sidebar-tag" v-if="home">
     <a href="#" @click="click" class="sidebar-tag__name">{{ $api.info.title }}</a>
   </div>
+  <div class="sidebar-tag" v-else-if="this.link">
+    <a :href="this.link" target="_blank" class="sidebar-tag__name">{{ this.text }}</a>
+  </div>
   <div class="sidebar-tag" v-else>
     <a :href="href" @click="click" class="sidebar-tag__name">{{ tag.name }}</a>
     <div class="sidebar-tag__entries">
@@ -18,7 +21,7 @@
 import DocSidebarEntry from '~/components/DocSidebarEntry'
 
 export default {
-  props: ['tag', 'home'],
+  props: ['tag', 'home', 'link', 'text'],
   components: { DocSidebarEntry },
   methods: {
     click(e) {

@@ -7,6 +7,17 @@
     <div v-for="tag in $api.tags" :key="tag.name">
       <DocSidebarTag :tag="tag" />
     </div>
+
+    <div class="additional-links">
+      <div v-if="$api.info.termsOfService">
+        <DocSidebarTag :link="$api.info.termsOfService" :text="$i18n('TERMS_OF_SERVICE')" />
+      </div>
+
+      <div v-if="$api.info.contact">
+        <DocSidebarTag v-if="$api.info.contact.email" :link="$api.info.contact.email" :text="$i18n('SEND_US_AN_EMAIL')" />
+        <DocSidebarTag v-if="$api.info.contact.url" :link="$api.info.contact.url" :text="$i18n('VISIT_OUR_WEBSITE')" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,4 +30,9 @@ export default {
 </script>
 
 <style>
+.additional-links {
+  opacity: 0.5;
+  padding: 1em 0;
+
+}
 </style>
