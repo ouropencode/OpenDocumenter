@@ -125,7 +125,8 @@ Most of the documentation text is taken directly from the OpenAPI schema file, h
     "VIA_OUR_WEBSITE": "via our website",
     "TERMS_OF_SERVICE": "Terms of Service",
     "SEND_US_AN_EMAIL": "Send us an email",
-    "VISIT_OUR_WEBSITE": "Visit our website"
+    "VISIT_OUR_WEBSITE": "Visit our website",
+    "EXTERNAL_DOCUMENTATION": "External Documentation"
   }
 }
 ```

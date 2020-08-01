@@ -45,6 +45,7 @@ module.exports = class Core {
       "OR": "or",
       "VIA_EMAIL": "via email",
       "VIA_OUR_WEBSITE": "via our website",
+      "EXTERNAL_DOCUMENTATION": "External Documentation",
       ...config.i18n
     }
 

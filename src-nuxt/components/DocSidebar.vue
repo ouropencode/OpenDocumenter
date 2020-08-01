@@ -4,6 +4,10 @@
       <DocSidebarTag :home="true" />
     </div>
 
+    <div class="external-docs" v-if="$api.externalDocs">
+      <DocSidebarTag v-if="$api.externalDocs.url" :link="$api.externalDocs.url" :text="$api.externalDocs.description || $i18n('EXTERNAL_DOCUMENTATION')" />
+    </div>
+
     <div v-for="tag in $api.tags" :key="tag.name">
       <DocSidebarTag :tag="tag" />
     </div>
