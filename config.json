@@ -1,0 +1,20 @@
+{
+  "mergeFromDirectory": null,
+  "disableGeneratedUsingFooter": false,
+  "abortOnInvalidSchema": false,
+  "i18n": {
+    "API_SDK_DOCUMENTATION": "API and SDK Documentation",
+    "VERSION": "Version",
+    "NO_INDEPTH_DOCS_AVAILABLE_ENDPOINT": "No in-depth API documentation is available for this endpoint.",
+    "NO_INDEPTH_DOCS_AVAILABLE_TAG": "No in-depth API documentation is available for this section.",
+    "CLICK_TO_COPY": "click to copy",
+    "COPIED": "copied",
+    "REQUEST_BODY": "Request Body",
+    "REQUEST_RESPONSES": "Request Responses",
+    "DEFINITION": "Definition",
+    "DEFINITIONS": "Definitions",
+    "SERVER": "Server",
+    "LANGUAGE": "Language",
+    "GENERATED_USING": "Generated using OpenDocumenter by $ourOpenCode"
+  }
+}

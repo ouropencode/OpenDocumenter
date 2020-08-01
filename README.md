@@ -64,12 +64,21 @@ overrides
    '- DocEntry.vue
 ```
 
-### Disable 'Generated Using' Footer
+### 'Generated Using' Footer
 By default, a small 'Generated Using' message is included on the footer of the generated documentation. Although we'd love you to keep it, you can disable this by setting the `disableGeneratedUsingFooter` parameter to true.
 
 ```json
 {
   "disableGeneratedUsingFooter": true
+}
+```
+
+### Aborting on Invalid Schema
+OpenDocumenter is capable of generating documentation for OpenAPI schemas that don't match the OpenAPI Specification entirely. When generating we attempt to validate your schema, display any validation warnings, and then continue to generate. If you would like the generation to abort when a schema is invalid you can set the `abortOnInvalidSchema` parameter to true.
+
+```json
+{
+  "abortOnInvalidSchema": true
 }
 ```
 

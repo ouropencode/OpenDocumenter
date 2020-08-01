@@ -20,6 +20,7 @@ module.exports = class Core {
     this._config = {
       "mergeFromDirectory": null,
       "disableGeneratedUsingFooter": false,
+      "abortOnInvalidSchema": false,
       "i18n": {},
       ...config
     }
@@ -51,13 +52,8 @@ module.exports = class Core {
 
   async prepare() {
     this._api = await this.loadAPI(this._schema)
-    console.log(`  API Name:      ${this._api.info.title}`)
-    console.log(`  API Version:   ${this._api.info.version}`)
-    console.log(`  Schema:        ${this._schema}`)
-    console.log(`  Output:        ${this._outputDir}`)
-    if(this._configFile)
-      console.log(`  Config:        ${this._configFile}`)
 
+    this._displayInfo()
 
     await copy(this._srcPath, this._tmpPath)
 
@@ -70,9 +66,7 @@ module.exports = class Core {
 
     const results = await copy(path.join(this._tmpPath, "dist"), this._outputDir)
 
-    console.log()
-    console.log(`  --- OpenDocumenter finished. ${results.length} files created. ---`.bold.green)
-    console.log()
+    this._displayBanner(`OpenDocumenter finished! ${results.length} files created.`)
   }
 
   async finalize() {
@@ -93,9 +87,7 @@ module.exports = class Core {
     config.build.analyze = false
     config.target = 'static'
 
-    console.log()
-    console.log("  --- Starting nuxt for build ---".bold.green)
-    console.log()
+    this._displayBanner("Starting nuxt for build")
 
     try {
       const nuxt = await this.getNuxt(config)
@@ -107,20 +99,25 @@ module.exports = class Core {
       })
       await nuxt.close()
     } catch (e) {
-      console.error(e)
       await nuxt.close()
+      throw e
     }
   }
 
   async loadAPI(file) {
+    let api = await SwaggerParser.parse(file)
+
     try {
-      let api = await SwaggerParser.validate(file)
-      api = await SwaggerParser.bundle(api)
-      return api
+      api = await SwaggerParser.validate(file)
+    } catch(e) {
+      if(e.name != "SyntaxError") throw e
+      this._displaySchemaSyntaxError(e.details)
+      if(this._config.abortOnInvalidSchema == true)
+        throw e
     }
-    catch(err) {
-      console.error(err)
-    }
+
+    api = await SwaggerParser.bundle(api)
+    return api
   }
 
   async getNuxt(options) {
@@ -142,5 +139,44 @@ module.exports = class Core {
   async getGenerator(nuxt) {
     const builder = await this.getBuilder(nuxt)
     return new Generator(nuxt, builder)
+  }
+
+  async _displayBanner(text, type = "default") {
+    let prefix = "---";
+    let color = "green"
+
+    if(type == "warn" || type == "warning") {
+      prefix = "???"
+      color = "yellow"
+    }
+
+    if(type == "err" || type == "error") {
+      prefix = "!!!"
+      color = "red"
+    }
+
+    console.log()
+    console.log(` ${prefix} ${text}`.bold[color])
+    console.log()
+  }
+
+  async _displayInfo() {
+    this._displayBanner("API Details")
+    console.log(`  Name:      ${this._api.info.title}`)
+    console.log(`  Version:   ${this._api.info.version}`)
+    console.log(`  Schema:    ${this._schema}`)
+    console.log(`  Output:    ${this._outputDir}`)
+    if(this._configFile)
+      console.log(`  Config:    ${this._configFile}`)
+  }
+
+  async _displaySchemaSyntaxError(details) {
+    this._displayBanner("OpenAPI schema validation failed", "warn")
+    details.forEach((issue, idx) => {
+      console.log("    - #/" + issue.path.join('/'))
+      console.log("      " + issue.message)
+      if(idx != details.length - 1)
+        console.log()
+    })
   }
 }

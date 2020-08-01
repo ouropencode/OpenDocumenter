@@ -9,8 +9,10 @@
     "opendocumenter": "src/cli.js"
   },
   "scripts": {
-    "start": "node src/cli.js",
-    "dev": "nuxt"
+    "start": "npm-run-all dev-generate dev-serve",
+    "dev": "nodemon .",
+    "dev-generate": "node ./src/cli.js --schema=openapi.yml --output=docs --config=config.json",
+    "dev-serve": "serve docs"
   },
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.0.1",
@@ -23,11 +25,16 @@
     "less-loader": "^6.2.0",
     "markdown-it-highlightjs": "^3.2.0",
     "minimist": "^1.2.5",
+    "npm-run-all": "^4.1.5",
     "nuxt": "^2.14.0",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-webfontloader": "^1.1.0",
     "recursive-copy": "^2.0.10",
     "uuid": "^8.3.0",
     "vue-highlight.js": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "serve": "^11.3.2"
   }
 }

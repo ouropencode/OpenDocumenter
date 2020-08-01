@@ -14,9 +14,15 @@ const start = async () => {
     await docgen.generate()
     await docgen.finish()
   } catch(e) {
-    console.error(e)
+    let message = e.message
+      .toString()
+      .replace(/Swagger/gi, "OpenAPI")
+      .split('\n')[0]
+
+    docgen._displayBanner("Aborting due to error: " + message, "err")
+  } finally {
+    await docgen.finalize()
   }
-  await docgen.finalize()
 }
 
 console.log(`
