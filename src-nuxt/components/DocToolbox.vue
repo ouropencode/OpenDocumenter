@@ -1,6 +1,6 @@
 <template>
   <div class="toolbox">
-    <DocToolboxDropdown v-if="serverOptions.length" :label="$i18n('SERVER')" v-model="currentServer" :options="serverOptions" />
+    <DocToolboxDropdown v-if="serverOptions.length" :label="$i18n('SERVER')" v-model="currentServer" :options="serverOptions" :show-key="true" />
     <DocToolboxDropdown v-if="langOptions.length" :label="$i18n('LANGUAGE')" v-model="currentLang" :options="langOptions" />
     <div class="toolbox__spacer"></div>
     <DocToolboxDropdown :label="$i18n('DEFINITIONS')" v-model="showDefinition" :options="showDefOptions" />
@@ -16,7 +16,7 @@ export default {
   components: { DocToolboxIcon, DocToolboxDropdown },
   mounted() {
     if(!this.currentServer && this.serverOptions.length)
-      this.currentServer = this.serverOptions[0].value
+      this.currentServer = this.serverOptions[0].key
     if(!this.currentLang && this.langOptions.length)
       this.currentLang = this.langOptions[0].key
   },
@@ -30,7 +30,7 @@ export default {
       const options = [];
       this.$api.servers.forEach(server => options.push({
         key:   server.url,
-        value: server.name || server.url
+        value: server.description
       }));
       return options
     },

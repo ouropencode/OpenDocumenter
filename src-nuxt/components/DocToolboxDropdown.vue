@@ -1,20 +1,29 @@
 <template>
   <div class="toolbox-dropdown">
     <div class="toolbox-dropdown__label">
-      {{ label }}:
+      {{ label }}
     </div>
 
     <div class="toolbox-dropdown__value" @click="isOpen = !isOpen">
       <div>
         <span>{{ valueText }}</span>
-        <font-awesome-icon icon="chevron-down" v-if="options.length > 1" />
       </div>
 
       <div class="toolbox-dropdown__options" v-show="isOpen" v-if="options.length > 1">
         <div class="toolbox-dropdown-option" v-for="opt in options" :key="opt.key" @click="$emit('input', opt.key)">
-          {{ opt.value }}
+          <span v-if="showKey">
+            <b>{{ opt.value }}</b>
+            {{ opt.key }}
+          </span>
+          <span v-else>
+            {{ opt.value }}
+          </span>
         </div>
       </div>
+    </div>
+
+    <div class="toolbox-dropdown__arrow" @click="isOpen = !isOpen" v-if="options.length > 1">
+      <font-awesome-icon icon="chevron-down" />
     </div>
   </div>
 </template>
@@ -23,7 +32,7 @@
 import DocToolboxDropdown from '~/components/DocToolboxDropdown'
 
 export default {
-  props: ['label', 'value', 'options'],
+  props: ['label', 'value', 'options',  'show-key'],
   components: { DocToolboxDropdown },
   computed: {
     valueText() {
@@ -62,7 +71,7 @@ export default {
     cursor: pointer;
     position: relative;
     flex: 0 0 auto;
-    max-width: 15em;
+    max-width: 10em;
     background: @color-toolbox-active-background;
     padding: 0.5em;
     font-size: 0.8em;
@@ -73,6 +82,10 @@ export default {
         padding-right: 0.25em;
       }
     }
+  }
+
+  &__arrow {
+    cursor: pointer;
   }
 
   &__options {
@@ -87,10 +100,16 @@ export default {
 .toolbox-dropdown-option {
   padding: 0.5em;
   color: @color-toolbox-link;
+  max-width: 15em;
   .truncated();
 
   &:hover {
     color: @color-toolbox-link-hover;
+  }
+
+  b {
+    display: block;
+    padding-bottom: 0.25em;
   }
 }
 </style>
