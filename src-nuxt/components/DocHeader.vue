@@ -39,7 +39,7 @@ export default {
   computed: {
     shields() {
       const shields = [
-        { left: "VERSION", right: this.$api.info.version, translate: "left" },
+        { left: "VERSION", right: this.$api.info.version, translate: "left", color: "#EE7A3B" },
       ]
 
       if(this.$api.info.license) {
