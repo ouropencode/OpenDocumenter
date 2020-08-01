@@ -12,7 +12,8 @@
     "start": "npm-run-all dev-generate dev-serve",
     "dev": "nodemon -e js,vue,less,sass,css,html,json --ignore tmp/ --ignore docs/ --exec npm start",
     "dev-generate": "node ./src/cli.js --schema=openapi.yml --output=docs --config=config.json",
-    "dev-serve": "serve docs"
+    "dev-serve": "serve docs",
+    "dev-nuxt": "cd src-nuxt && nuxt"
   },
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.0.1",
