@@ -6,15 +6,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Node.js environment
+    - name: Setup Node.js Environment
       uses: actions/setup-node@v2.1.1
       with:
         node-version: '>=14.6'
-    - uses: actions/checkout@master
-    - name: build
-      run: |
-        npm install
-        npm run dev-generate
-    - uses: kittaakos/upload-artifact-as-is@v0
+    - name: Checkout Git Repository
+      uses: actions/checkout@master
+    - name: Install Dependencies (with caching)
+      uses: bahmutov/npm-install@v1
+    - name: Generate Documentation
+      run: npm run dev-generate
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v2
       with:
+        name: documentation
         path: example/docs/
+        if-no-files-found: error
+    - name: Deploy to GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v2.1.1
+      with:
+        target_branch: gh-pages
+        build_dir: example/docs/
