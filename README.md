@@ -150,5 +150,7 @@ Most of the documentation text is taken directly from the OpenAPI schema file, h
 }
 ```
 
+> There is a single end-user visible string that isn't configurable in this config. The "Loading Documentation..." text in the page title, briefly shown during page load, is only configurable using the "Merge From Directory" parameter.
+
 ## License
 Licensed under the MIT license. Please see [LICENSE](LICENSE) for more details.
