@@ -1,44 +1,52 @@
 {
   "name": "opendocumenter",
   "version": "0.4.1",
-  "main": "index.js",
-  "license": "MIT",
-  "index": "src/index.js",
   "author": "$ourOpenCode",
-  "bin": {
-    "opendocumenter": "src/cli.js"
-  },
   "scripts": {
     "start": "npm-run-all dev-generate dev-serve",
     "dev": "nodemon -e js,vue,less,sass,css,html,json,yml --ignore tmp/ --ignore example/docs/ --exec npm start",
-    "dev-generate": "node ./src/cli.js --schema=./example/openapi.yml --output=./example/docs --config=./example/config.json",
+    "dev-generate": "node ./src-engine/cli.js --schema=./example/openapi.yml --output=./example/docs --config=./example/config.json",
     "dev-serve": "serve ./example/docs",
-    "dev-nuxt": "cd src-nuxt && nuxt"
+    "vue": "vue-cli-service build"
   },
-  "engines": {
-    "node": ">=14.6"
-  },
+  "main": "./src-engine/index.js",
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.0.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@nuxtjs/markdownit": "^1.2.10",
-    "@nuxtjs/router": "^1.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "babel-plugin-root-import": "^6.5.0",
     "babel-runtime": "^6.26.0",
     "colors": "^1.4.0",
-    "highlight.js": "10.1.2",
+    "core-js": "^3.6.5",
+    "exec-sh": "^0.3.4",
+    "highlight.js": "9.11.0",
+    "less": "^3.0.4",
     "less-loader": "^6.2.0",
-    "markdown-it-highlightjs": "^3.2.0",
+    "markdown-it-vue": "^1.1.3",
     "minimist": "^1.2.5",
     "npm-run-all": "^4.1.5",
-    "nuxt": "^2.14.0",
-    "nuxt-fontawesome": "^0.4.0",
-    "nuxt-webfontloader": "^1.1.0",
     "recursive-copy": "^2.0.10",
     "uuid": "^8.3.0",
-    "vue-highlight.js": "^3.1.0"
+    "vue": "^2.6.11",
+    "vue-cli-plugin-webfontloader": "~0.1.1",
+    "vue-highlight.js": "^3.1.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.4.0",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
     "serve": "^11.3.2"
-  }
+  },
+  "bin": {
+    "opendocumenter": "src/cli.js"
+  },
+  "engines": {
+    "node": ">=14.6"
+  },
+  "license": "MIT"
 }
