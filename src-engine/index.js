@@ -94,7 +94,7 @@ module.exports = class Core {
 
   async finalize() {
     process.chdir(this._cwd)
-    //fs.rmdirSync(this._tmpPath, { recursive: true });
+    fs.rmdirSync(this._tmpPath, { recursive: true })
   }
 
   async generate(file) {
