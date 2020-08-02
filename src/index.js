@@ -13,6 +13,10 @@ WebFont.load({
   }
 })
 
+// Setup vue-head
+import VueHead from 'vue-head'
+Vue.use(VueHead)
+
 // Setup vue-highlight.js
 import VueHighlightJS from 'vue-highlight.js'
 import 'vue-highlight.js/lib/allLanguages'
@@ -50,7 +54,7 @@ Vue.prototype.$hashPath = (path, method) => {
 
 // Initialise Vue
 import store from './store'
-import index from './index'
+import index from './index.vue'
 
 new Vue({
   store: store,

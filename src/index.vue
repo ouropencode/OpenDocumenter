@@ -14,13 +14,18 @@ export default {
     if(hash.length > 0)
       this.$smoothScroll(hash)
   },
-  head() {
-    return {
-      title: `${this.$api.info.title} - ${this.$api.info.version}`,
-      meta: [
-        { name: 'description', content: this.$api.info.description.substr(0, 160), vmid: 'index' }
+  head: {
+    title: function() {
+      return {
+        inner: `${this.$api.info.title} - ${this.$api.info.version}`,
+        complement: this.$i18n("DOCUMENTATION"),
+      }
+    },
+    meta: function() {
+      return [
+        { name: 'description', content: this.$api.info.description.substr(0, 160), vmid: 'index' },
       ]
-    }
+    },
   }
 }
 </script>
