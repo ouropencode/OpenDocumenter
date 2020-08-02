@@ -1,8 +1,8 @@
 documentation:
-- **/*.md
+  - "**/*.md"
 
 engine:
-- src/**/*
+  - "src/**/*"
 
 template:
-- src-nuxt/**/*
+  - "src-nuxt/**/*"
