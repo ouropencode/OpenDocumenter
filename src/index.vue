@@ -18,6 +18,7 @@ export default {
     title: function() {
       return {
         inner: `${this.$api.info.title} - ${this.$api.info.version}`,
+        separator: '-',
         complement: this.$i18n("DOCUMENTATION"),
       }
     },
