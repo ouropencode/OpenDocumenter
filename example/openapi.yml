@@ -94,14 +94,6 @@ paths:
                 error: arcu diam laoreet nulla in vestibulum
               schema:
                 $ref: '#/components/schemas/Error'
-        '428':
-          description: Suspendisse accumsan a nulla
-          content:
-            application/json:
-              example:
-                error: mattis porta lorem eget tempor
-              schema:
-                $ref: '#/components/schemas/Error'
 
   /consectetur/vitae:
     post:
