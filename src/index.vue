@@ -13,6 +13,7 @@ export default {
     const hash = document.location.hash.substr(1)
     if(hash.length > 0)
       this.$smoothScroll(hash)
+    document.getElementById("page-loading").remove()
   },
   head: {
     title: function() {
