@@ -100,7 +100,7 @@ OpenDocumenter is capable of generating documentation for OpenAPI schemas that d
 ```
 
 ### Shields / Badges
-Various shields are included in the generated documentation header, such as the API version. Additional shields can be added using the `shields` parameter. Each badge is an object containing either the `url` key, or a combination of `left`, `right` and `color`. The `translate` parameter can be used (`left`, `right`, `both`) to run the text through the internationalization handler. An optional link can provided with the `href` parameter. All shields are generated using [shields.io](https://shields.io) unless a URL is provided.
+Various shields are included in the generated documentation header, such as the API version. Additional shields can be added using the `shields` parameter. Each shield is an object containing either the `url` key, or a combination of `left`, `right` and `color`. The `translate` parameter can be used (`left`, `right`, `both`) to run the text through the internationalization handler. An optional link can provided with the `href` parameter. All shields are generated using [shields.io](https://shields.io) unless a URL is provided.
 
 ```json
 {
