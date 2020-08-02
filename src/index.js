@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import './plugins/codegen'
-import './plugins/envInject'
+import envInject from './plugins/envInject'
 
 Vue.config.productionTip = false
 
@@ -55,8 +55,10 @@ Vue.prototype.$hashPath = (path, method) => {
 // Initialise Vue
 import store from './store'
 import index from './index.vue'
-
-new Vue({
-  store: store,
-  render: h => h(index)
-}).$mount('#app')
+;(async () => {
+  await envInject()
+  new Vue({
+    store: store,
+    render: h => h(index)
+  }).$mount('#app')
+})()

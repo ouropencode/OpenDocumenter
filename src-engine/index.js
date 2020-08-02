@@ -116,7 +116,6 @@ module.exports = class Core {
         throw e
     }
 
-    api = await SwaggerParser.bundle(api)
     return api
   }
 

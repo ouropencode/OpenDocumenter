@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import SwaggerParser from '@apidevtools/swagger-parser'
 import Environment from '../environment.json'
 
 const addSaneDefaults = api => {
@@ -41,14 +42,16 @@ const addPathsToTags = api => {
   })
 }
 
-const api = Environment.api
+export default async () => {
+  let api = Environment.api
+  addSaneDefaults(api)
+  addPathMethodAndDefaultTags(api)
+  addPathsToTags(api)
+  api = await SwaggerParser.bundle(api)
 
-addSaneDefaults(api)
-addPathMethodAndDefaultTags(api)
-addPathsToTags(api)
+  Vue.prototype.$api    = api
+  Vue.prototype.$config = Environment
+  Vue.prototype.$i18n   = key => Environment.i18n[key] || key
 
-Vue.prototype.$api    = api
-Vue.prototype.$config = Environment
-Vue.prototype.$i18n   = key => Environment.i18n[key] || key
-
-console.log(`API name: ${api.info.title}, Version: ${api.info.version}`)
+  console.log(`API name: ${api.info.title}, Version: ${api.info.version}`)
+}
