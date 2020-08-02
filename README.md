@@ -4,11 +4,10 @@
   <img alt="Version" src="https://img.shields.io/github/package-json/v/ouropencode/OpenDocumenter" />
   <img alt="npm" src="https://img.shields.io/npm/v/opendocumenter" />
   <img alt="License" src="https://img.shields.io/github/license/ouropencode/OpenDocumenter" />
-  <img alt="Languages" src="https://img.shields.io/github/languages/count/ouropencode/OpenDocumenter" />
-  <img alt="Top Language" src="https://img.shields.io/github/languages/top/ouropencode/OpenDocumenter" />
   <img alt="Dependencies" src="https://img.shields.io/librariesio/release/npm/opendocumenter" />
   <img alt="Issues" src="https://img.shields.io/github/issues/ouropencode/OpenDocumenter" />
   <img alt="Node Version" src="https://img.shields.io/node/v/opendocumenter" />
+  <img alt="Build Status" src="https://github.com/ouropencode/OpenDocumenter/workflows/Quisque%20API%20Build/badge.svg" />
 </p>
 
 <p align="center">

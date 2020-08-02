@@ -1,4 +1,4 @@
-name: Example Documentation
+name: Quisque API Build
 
 on:
   push:
