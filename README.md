@@ -71,7 +71,7 @@ The `mergeFromDirectory` parameter allows you to specify a directory that will b
 }
 ```
 
-Any part of the OpenDocumenter nuxt source (see: [./src-nuxt](./src-nuxt)) can be overridden, just ensure to follow the same directory structure!
+Any part of the OpenDocumenter vue source (see: [./src](./src)) can be overridden, just ensure to follow the same directory structure!
 ```
 overrides
  |- assets

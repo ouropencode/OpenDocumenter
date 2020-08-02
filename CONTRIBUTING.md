@@ -20,7 +20,6 @@ When contributing to this repository, please first discuss the change you wish t
 ```bash
 > yarn start         # run the example 'openapi.yml' in  ./example
 > yarn dev           # watch the filesystem for changes and exec `yarn start`
-> yarn dev-nuxt      # execute the built-in nuxt dev mode (advanced usage)
 ```
 
 ## Pull Request Process
@@ -39,14 +38,9 @@ When your feature is ready to show to others, you should follow the below proces
 Any contributions should consider the existing i18n support available through the `$i18n()` method. Any new strings added to the project should use this method for string internationalization. When adding a new string you will need to edit the `./src/index.js` file, and the `./example/config.json` file.
 
 ## Configuration
-All configuration is handled through a `.json` file provided by the end-user. Provided throughout the project via the `$config.*` variable. When adding a new parameter you will need to edit the `./src/index.js` file, the `./src-nuxt/plugins/envInject.js` file, and the `./example/config.json` file.
+All configuration is handled through a `.json` file provided by the end-user. Provided throughout the project via the `$config.*` variable. When adding a new parameter you will need to edit the `./src/index.js` file, the `./src/environment.json` file, and the `./example/config.json` file.
 
-Care should be taken when altering the `envInject.js` file - the intention if to provide enough structure for the documentation to display even if no env is available to inject (this happens when running `yarn dev-nuxt`). Ideally, this means purely structural elements such as `{}` and `[]` although this isn't a hard requirement.
+Care should be taken when altering the `environment.json` file - the intention if to provide enough structure for the documentation to display even if no env is available to inject (this happens when running `yarn dev-nuxt`). Ideally, this means purely structural elements such as `{}` and `[]` although this isn't a hard requirement.
 
 ## Versions
 For versioning we use the [Semantic Versioning](https://semver.org) versioning scheme. Versioning will be managed by the $ourOpenCode team and contributors should leave all versions at the version forked.
-
-## `yarn dev-nuxt`
-When developing, using the `yarn dev` command can prove quite slow as it requires regenerating the whole documentation for every change, which can take upwards of 12 seconds on a good machine.
-
-To speed things up slightly, the nuxt can be run directly with the `yarn dev-nuxt` command. When running with this command no env data will be injected and no API is specified (see: [configuration](#configuration)). To get around this problem you can temporarily add values to the `./src-nuxt/plugins/envInject.js` file while you develop, but please don't commit these changes.
