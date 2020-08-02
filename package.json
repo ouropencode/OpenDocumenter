@@ -1,6 +1,6 @@
 {
   "name": "opendocumenter",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "author": "$ourOpenCode",
   "scripts": {
     "start": "npm-run-all dev-generate dev-serve",
