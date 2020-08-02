@@ -2,6 +2,8 @@
   "mergeFromDirectory": null,
   "disableGeneratedUsingFooter": false,
   "abortOnInvalidSchema": false,
+  "vueModernMode": true,
+  "vueReport": "none",
   "shields": [],
   "i18n": {
     "API_SDK_DOCUMENTATION": "API and SDK Documentation",

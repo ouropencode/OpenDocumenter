@@ -21,6 +21,8 @@ module.exports = class Core {
       "mergeFromDirectory": null,
       "disableGeneratedUsingFooter": false,
       "abortOnInvalidSchema": false,
+      "vueModernMode": true,
+      "vueReport": "none",
       "shields": [],
       "i18n": {},
       ...config
@@ -100,8 +102,22 @@ module.exports = class Core {
   async generate(file) {
     process.chdir(path.resolve(this._tmpPath, '..'))
 
-    this._displayBanner("Starting vue-cli-service for build")
-    await execShPromise('vue-cli-service build')
+    let flags = []
+
+    if(this._config.vueModernMode == true)
+      flags.push("--modern")
+
+    if(this._config.vueReport == "html" || this._config.vueReport == "both")
+      flags.push("--report")
+
+    if(this._config.vueReport == "json" || this._config.vueReport == "both")
+      flags.push("--report-json")
+
+    flags = flags.join(' ')
+
+    let flagStr = flags.length > 0 ? `with flags: ${flags}` : ''
+    this._displayBanner(`Starting build ${flagStr}`)
+    await execShPromise(`vue-cli-service build ${flags}`)
   }
 
   async loadAPI(file) {

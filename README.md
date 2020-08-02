@@ -117,6 +117,24 @@ Various shields are included in the generated documentation header, such as the 
 }
 ```
 
+### Build: Modern Mode
+By default, the build-chain produces "Modern Mode"  output, shipping native ES2015 code to modern browsers that support it, with auto fallback to a legacy bundle. This can be turned off by setting `vueModernMode` parameter, afterwards the build-chain produces "Legacy" output for older browser compatibility.
+
+```json
+{
+  "vueModernMode": false
+}
+```
+
+### Build: Reporting
+You can control the reporting output from the build-chain with the `vueReport` parameter. This defaults to `none` and can be set to `json`, `html` or `both`. With this enabled the build-chain will output a report file describing the webpack bundle.
+
+```json
+{
+  "vueReport": "html"
+}
+```
+
 ### Internationalization
 Most of the documentation text is taken directly from the OpenAPI schema file, however, there are various strings throughout the project that cannot be stored within the schema file. All of these strings are customizable by editing the `i18n` parameter.
 ```json
