@@ -1,0 +1,13 @@
+{
+  "api": {
+    "openapi": "0.0.0",
+    "info": {},
+    "servers": [],
+    "paths": {},
+    "components": {},
+    "security": [],
+    "tags": [],
+    "externalDocs": []
+  },
+  "i18n": {}
+}
