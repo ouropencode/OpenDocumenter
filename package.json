@@ -44,7 +44,7 @@
     "serve": "^11.3.2"
   },
   "bin": {
-    "opendocumenter": "src/cli.js"
+    "opendocumenter": "src-engine/cli.js"
   },
   "engines": {
     "node": ">=14.6"
