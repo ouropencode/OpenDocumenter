@@ -31,11 +31,11 @@
     "npm-run-all": "^4.1.5",
     "recursive-copy": "^2.0.10",
     "uuid": "^8.3.0",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-cli-plugin-webfontloader": "~0.1.1",
     "vue-head": "^2.2.0",
     "vue-highlight.js": "^3.1.0",
-    "vue-template-compiler": "^2.6.11",
+    "vue-template-compiler": "^2.6.12",
     "vuex": "^3.4.0",
     "webfontloader": "^1.6.28"
   },
