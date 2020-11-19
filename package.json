@@ -23,7 +23,7 @@
     "colors": "^1.4.0",
     "core-js": "^3.6.5",
     "exec-sh": "^0.3.4",
-    "highlight.js": "9.18.3",
+    "highlight.js": "9.18.4",
     "less": "^3.0.4",
     "less-loader": "^6.2.0",
     "markdown-it-vue": "^1.1.3",
