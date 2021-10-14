@@ -15,7 +15,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/vue-fontawesome": "^0.1.10",
-    "@vue/cli-plugin-babel": "~4.5.3",
+    "@vue/cli-plugin-babel": "~4.5.14",
     "@vue/cli-plugin-vuex": "~4.5.3",
     "@vue/cli-service": "~4.5.2",
     "babel-plugin-root-import": "^6.5.0",
