@@ -18,7 +18,7 @@
 
 OpenDocumenter is a automatic documentation generator for [OpenAPI v3](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) schemas. Simply provide your schema file in JSON or YAML, then sit back and enjoy the documentation.
 
-Powered by [nuxt.js](https://nuxtjs.org/https://nuxtjs.org/) and [swagger-parser](https://github.com/swagger-api/swagger-parser).
+Powered by [nuxt.js](https://nuxtjs.org/) and [swagger-parser](https://github.com/swagger-api/swagger-parser).
 
 ## Example
 For a live preview of documentation generated with OpenDocumenter you can view our demo documentation "**[Quisque API](https://ouropencode.github.io/OpenDocumenter/)**". This example uses lorem-ipsum for all content to provide placeholder text used to demonstrate the form of a document without relying on meaningful content.
